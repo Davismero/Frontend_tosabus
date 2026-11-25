@@ -75,8 +75,39 @@ respectivos `README.md`. Los textos de la interfaz son en español y se usan
 los términos del dominio Compañía, Ruta, Parada, Bus, Viaje, Reserva, Boleto,
 Pago y Ubicación. Las rutas, horarios y tarifas se obtienen siempre de la API.
 
+## Tema visual (T-02, RNF-07)
+
+Los colores se definen **una sola vez** en
+[`lib/core/theme/tosabus_colors.dart`](lib/core/theme/tosabus_colors.dart) y se
+aplican en [`lib/core/theme/tosabus_theme.dart`](lib/core/theme/tosabus_theme.dart)
+mediante `tosabusTheme()`. Nunca escribas un color hexadecimal a mano en un
+widget: usa los tokens.
+
+| Uso | Token | Valor |
+| --- | --- | --- |
+| Primario (barra superior, botones) | `verdeTosaBus` | `#1F7A33` |
+| Énfasis / presionado | `verdeBosque` | `#14532D` |
+| Acento (solo detalles) | `dorado` | `#F5B700` |
+| Informativo (mapa, iconos) | `azulCielo` | `#2E93D1` |
+| Fondo de pantallas | `cremaVerdoso` | `#F5F9F3` |
+| Superficies (tarjetas) | `blanco` | `#FFFFFF` |
+| Texto principal | `carbonVerdoso` | `#1B2A1F` |
+| Texto secundario | `grisMusgo` | `#5A6B5E` |
+| Bordes y divisores | `grisBorde` | `#D6E0D4` |
+| Éxito (con icono de check) | `verdeExito` | `#2E7D32` |
+| Advertencia | `naranja` | `#ED6C02` |
+| Error | `rojo` | `#C62828` |
+
+Reglas: texto blanco sobre verde, texto oscuro sobre dorado (nunca blanco sobre
+dorado), azul cielo solo para iconos/mapa/informativo, contraste mínimo de
+4.5:1, radios de 8–12 px y espaciado en múltiplos de 8. El color nunca es la
+única señal: éxito, advertencia y error llevan icono y texto.
+
+La tipografía es **Inter** (400/500/700) con licencia OFL incluida en
+`assets/fonts/LICENSE.txt`, declarada en `pubspec.yaml` con respaldo del sistema.
+
 ## Estado del proyecto
 
 - T-01 (RNF-13): estructura del repositorio, configuración base y entorno
   reproducible.
-- T-02: tema visual de marca. Pendiente.
+- T-02 (RNF-07): tema visual de marca aplicado en `tosabusTheme()`.
